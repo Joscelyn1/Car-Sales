@@ -12,7 +12,7 @@ const App = props => {
   // const buyItem = item => {
   //   // dipsatch an action here to add an item
   // };
-
+  //console.log(props.store.getState(), "store");
   return (
     <div className="boxes">
       <div className="box">
