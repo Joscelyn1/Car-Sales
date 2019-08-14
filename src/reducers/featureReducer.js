@@ -17,16 +17,17 @@ export const initialState = {
 
 export const featureReducer = (state, action) => {
   switch (action.type) {
-    case "TOGGLE_EDITING":
+    case "ADD_FEATURE":
       return {
         ...state,
-        editing: !state.editing
-      };
-    case "UPDATE_TITLE":
-      return {
-        ...state,
-        title: action.payload,
-        editing: !state.editing
+        toDos: [
+          ...state.features,
+          {
+            id: action.payload.id,
+            name: action.payload.name,
+            price: action.payload.price
+          }
+        ]
       };
     default:
       return state;
