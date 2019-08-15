@@ -20,7 +20,11 @@ export const featureReducer = (state, action) => {
     case "ADD_FEATURE":
       return {
         ...state,
-        car: { ...state.car, features: [...state.car.features, action.payload] }
+        car: {
+          ...state.car,
+          price: state.car.price + action.payload.price,
+          features: [...state.car.features, action.payload]
+        }
       };
     case "REMOVE_FEATURE":
       const arrayOfCarFeaturesAfterRemove = [...state.car.features];
@@ -34,7 +38,11 @@ export const featureReducer = (state, action) => {
       });
       return {
         ...state,
-        car: { ...state.car, features: arrayOfCarFeaturesAfterRemove }
+        car: {
+          ...state.car,
+          price: state.car.price - action.payload.price,
+          features: arrayOfCarFeaturesAfterRemove
+        }
       };
     default:
       return state;
