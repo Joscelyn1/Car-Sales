@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { removeFeature } from "../actions/index.js";
+import { Button } from "shards-react";
 
 const AddedFeature = props => {
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button
+      <Button
+        theme="danger"
         onClick={() => {
           props.removeFeature({
             id: props.feature.id,
@@ -14,10 +16,9 @@ const AddedFeature = props => {
             price: props.feature.price
           });
         }}
-        className="button"
       >
         X
-      </button>
+      </Button>
       {props.feature.name}
     </li>
   );

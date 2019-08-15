@@ -4,7 +4,8 @@ import App from "./App";
 import { featureReducer, initialState } from "./reducers/featureReducer.js";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "shards-ui/dist/css/shards.min.css";
 import "bulma/css/bulma.css";
 import "./styles.scss";
 
