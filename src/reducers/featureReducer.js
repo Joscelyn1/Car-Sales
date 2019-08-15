@@ -20,16 +20,38 @@ export const featureReducer = (state, action) => {
     case "ADD_FEATURE":
       return {
         ...state,
-        toDos: [
-          ...state.features,
-          {
-            id: action.payload.id,
-            name: action.payload.name,
-            price: action.payload.price
-          }
-        ]
+        car: { ...state.car, features: [...state.car.features, action.payload] }
+      };
+    case "REMOVE_FEATURE":
+      const arrayOfCarFeaturesAfterRemove = [...state.car.features];
+      arrayOfCarFeaturesAfterRemove.map(feature => {
+        if (feature.id === action.payload.id) {
+          arrayOfCarFeaturesAfterRemove.splice(
+            arrayOfCarFeaturesAfterRemove.indexOf(feature),
+            1
+          );
+        }
+      });
+      return {
+        ...state,
+        car: { ...state.car, features: arrayOfCarFeaturesAfterRemove }
       };
     default:
       return state;
   }
 };
+
+/*
+
+    case "REMOVE_TODO":
+      const deletedToDos = [...state.toDos];
+      deletedToDos.map(toDo => {
+        if (toDo.id === action.payload) {
+          deletedToDos.splice(deletedToDos.indexOf(toDo), 1);
+        }
+      });
+      return {
+        ...state,
+        toDos: deletedToDos
+      };
+*/

@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addFeature } from "../actions/index.js";
 const AdditionalFeature = props => {
-  const [feature, setFeature] = useState();
-  console.log(props, "additionalfeature props");
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
       <button
         onClick={() => {
-          props.addFeature(feature);
-          setFeature("");
+          props.addFeature({
+            id: props.feature.id,
+            name: props.feature.name,
+            price: props.feature.price
+          });
         }}
         className="button"
       >

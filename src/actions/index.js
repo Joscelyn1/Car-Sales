@@ -1,4 +1,7 @@
 export const addFeature = payload => {
-  console.log("addFeature was invoked");
   return { type: "ADD_FEATURE", payload: payload };
+};
+
+export const removeFeature = payload => {
+  return { type: "REMOVE_FEATURE", payload: payload };
 };
